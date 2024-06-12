@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import './PopularRecipes.css';
+import '../App.css';
 
 const PopularRecipes = () => {
   const [recipes, setRecipes] = useState([]);

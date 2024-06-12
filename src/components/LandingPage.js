@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import './LandingPage.css';
+import '../App.css';
 import PopularRecipes from './PopularRecipes';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
