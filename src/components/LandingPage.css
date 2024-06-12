@@ -1,0 +1,11 @@
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .carousel-caption h1,
+  .carousel-caption p {
+    color: #fff;
+  }
+  
