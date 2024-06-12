@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import '../App.css';
+import spoonacularLogo from '../assets/spoonacular.png';
 
 const PopularRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -9,8 +10,8 @@ const PopularRecipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=6&apiKey=ea8153fa7bca41078c8d455fc9f8e682`);
-        setRecipes(response.data.recipes);
+        // const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=6&apiKey=ea8153fa7bca41078c8d455fc9f8e682`);
+        // setRecipes(response.data.recipes);
       } catch (error) {
         console.error('Error fetching the recipes:', error);
       }
@@ -21,7 +22,8 @@ const PopularRecipes = () => {
 
   return (
     <Container className="mt-4">
-      <h2>Popular Recipes</h2>
+      <h2>Popular Recipes Across the Web</h2>
+      <img src ={spoonacularLogo} alt='spooncaularlogo' className='spoonacular-logo' ></img>
       <Row>
         {recipes.map((recipe) => (
           <Col key={recipe.id} sm={12} md={6} lg={4} className="mb-4">
