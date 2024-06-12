@@ -1,13 +1,15 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import './LandingPage.css';
+import PopularRecipes from './PopularRecipes';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
 import img3 from '../assets/img3.jpg';
 
 const LandingPage = () => {
   return (
-    <Container className="mt-4">
+    <>
+    <Container className="">
       <Carousel>
         <Carousel.Item>
           <img
@@ -44,7 +46,10 @@ const LandingPage = () => {
         </Carousel.Item>
       </Carousel>
     </Container>
+    <PopularRecipes />
+</>
   );
+  
 };
 
 export default LandingPage;
