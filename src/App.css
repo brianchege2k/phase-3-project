@@ -6,7 +6,7 @@ body {
 }
 
 .sidebar {
-  width: 150px;
+  width: 250px;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -17,7 +17,7 @@ body {
 
 .content {
   margin-left: 250px;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .sidebar h4 {
@@ -32,4 +32,31 @@ body {
 .sidebar .nav-link.active {
   font-weight: bold;
   color: #0056b3;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption h1,
+.carousel-caption p {
+  color: #fff;
+}
+
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
