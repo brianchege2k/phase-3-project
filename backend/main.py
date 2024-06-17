@@ -9,7 +9,7 @@ app = FastAPI()
 # Allow CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://recipes-frontend-app-1991d846e846.herokuapp.com/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
