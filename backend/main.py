@@ -1,4 +1,4 @@
-
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import sqlite3
@@ -9,7 +9,7 @@ app = FastAPI()
 # Allow CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://recipes-frontend-app-1991d846e846.herokuapp.com/"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -17,7 +17,8 @@ app.add_middleware(
 
 # Database connection
 def get_db_connection():
-    conn = sqlite3.connect('recipes.db')
+    db_url = os.getenv('DATABASE_URL', 'sqlite:///backend/recipes.db')
+    conn = sqlite3.connect(db_url[len('sqlite:///'):])
     conn.row_factory = sqlite3.Row
     return conn
 
