@@ -1,4 +1,4 @@
-import os
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import sqlite3
@@ -17,8 +17,7 @@ app.add_middleware(
 
 # Database connection
 def get_db_connection():
-    db_url = os.getenv('DATABASE_URL', 'sqlite:///backend/recipes.db')
-    conn = sqlite3.connect(db_url[len('sqlite:///'):])
+    conn = sqlite3.connect('recipes.db')
     conn.row_factory = sqlite3.Row
     return conn
 

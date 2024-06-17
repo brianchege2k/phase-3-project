@@ -1,3 +1,4 @@
+// src/components/MyRecipes.js
 
 import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
@@ -6,24 +7,20 @@ const MyRecipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/recipes`)
+    fetch('http://localhost:8000/api/recipes')
       .then(response => response.json())
-      .then(data => setRecipes(data))
-      .catch(error => console.error('Error fetching recipes:', error));
+      .then(data => setRecipes(data));
   }, []);
 
   const deleteRecipe = (id) => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/recipes/${id}`, {
+    fetch(`http://localhost:8000/api/recipes/${id}`, {
       method: 'DELETE',
     })
-      .then(response => {
-        if (response.ok) {
-          setRecipes(recipes.filter(recipe => recipe.id !== id));
-        } else {
-          console.error('Error deleting recipe:', response.statusText);
-        }
-      })
-      .catch(error => console.error('Error deleting recipe:', error));
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setRecipes(recipes.filter(recipe => recipe.id !== id));
+      });
   };
 
   return (
