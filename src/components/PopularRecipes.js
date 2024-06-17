@@ -10,8 +10,9 @@ const PopularRecipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=6&apiKey=ea8153fa7bca41078c8d455fc9f8e682`);
-        // setRecipes(response.data.recipes);
+        const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
+        const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=6&apiKey=${API_KEY}`);
+        setRecipes(response.data.recipes);
       } catch (error) {
         console.error('Error fetching the recipes:', error);
       }
@@ -22,7 +23,7 @@ const PopularRecipes = () => {
 
   return (
     <Container className="mt-4">
-      <h2>Popular Recipes Across the Web</h2>
+      <h2>View Some Popular Recipes Across the Web</h2>
       <img src ={spoonacularLogo} alt='spooncaularlogo' className='spoonacular-logo' ></img>
       <Row>
         {recipes.map((recipe) => (
