@@ -1,4 +1,15 @@
+## RECIPE CENTRAL BY BRIAN CHEGE NJUGUNA
+
+## This project is created using React and React Bootstrap for frontend and  Fast API and Sqlite for the database and backend, other software used is attributed below.
+
+[Spoonacular API](https://spoonacular.com/food-api)
+# Spoonacular API is only used for displaying recipes found on the web, its not used for any other purpose.
+
+[Project Demo Video]()
+
+
 # Getting Started with Create React App
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

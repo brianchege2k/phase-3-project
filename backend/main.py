@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import sqlite3
@@ -68,3 +67,18 @@ def delete_recipe(recipe_id: int):
     if cursor.rowcount == 0:
         raise HTTPException(status_code=404, detail="Recipe not found")
     return {"message": "Recipe deleted successfully"}
+
+@app.put("/api/recipes/{recipe_id}")
+def update_recipe(recipe_id: int, updated_recipe: Recipe):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+    UPDATE recipes
+    SET name = ?, description = ?, ingredients = ?
+    WHERE id = ?
+    ''', (updated_recipe.name, updated_recipe.description, updated_recipe.ingredients, recipe_id))
+    conn.commit()
+    conn.close()
+    if cursor.rowcount == 0:
+        raise HTTPException(status_code=404, detail="Recipe not found")
+    return {"id": recipe_id, "name": updated_recipe.name, "description": updated_recipe.description, "ingredients": updated_recipe.ingredients}
