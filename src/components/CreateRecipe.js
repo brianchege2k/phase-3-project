@@ -12,7 +12,7 @@ const CreateRecipe = () => {
     e.preventDefault();
     const newRecipe = { name, description, ingredients };
     
-    fetch('http://localhost:8000/api/recipes', {
+    fetch(`${process.env.REACT_APP_API_URL}/recipes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
